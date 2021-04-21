@@ -9,9 +9,10 @@
 function trimProperties(obj) {
   // ✨ implement
   
-  const objectCopy = {
-    ...obj.keys.trim(),
-  }
+  Object.keys(obj).map((eachKey)=>{
+    return obj[eachKey] = 
+   obj[eachKey].trim()
+  })
 }
 
 
