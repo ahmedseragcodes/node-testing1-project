@@ -8,7 +8,13 @@
  */
 function trimProperties(obj) {
   // ✨ implement
+  
+  const objectCopy = {
+    ...obj.keys.trim(),
+  }
 }
+
+
 
 /**
  * [Exercise 2] trimPropertiesMutation trims in place the properties of an object
