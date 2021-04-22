@@ -8,7 +8,16 @@
  */
 function trimProperties(obj) {
   // ✨ implement
+  
+  Object.keys(obj).map((eachKey)=>{
+    return obj[eachKey] = 
+   obj[eachKey].trim()
+  })
+
+  return obj;
 }
+
+
 
 /**
  * [Exercise 2] trimPropertiesMutation trims in place the properties of an object
@@ -20,6 +29,14 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
+
+    Object.keys(obj).forEach((eachKey)=>{
+    return obj[eachKey] = 
+   obj[eachKey].trim()
+  })
+
+  return obj;
+
 }
 
 /**
@@ -32,6 +49,9 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
   // ✨ implement
+  return integers.sort((a,b)=>{
+    return b.integer-a.integer;
+  })[0].integer
 }
 
 class Counter {
@@ -41,6 +61,7 @@ class Counter {
    */
   constructor(initialNumber) {
     // ✨ initialize whatever properties are needed
+    this.count = initialNumber;
   }
 
   /**
@@ -57,6 +78,12 @@ class Counter {
    */
   countDown() {
     // ✨ implement
+    const x = 1;
+    if (this.count>0){
+      return this.count -= x;
+    } else {
+      return this.count;
+    }
   }
 }
 
