@@ -147,8 +147,16 @@ class Car {
    * focus.drive(200) // returns 600 (ran out of gas after 100 miles)
    */
   drive(distance) {
-    this.odometer += distance
-    return this.odometer
+    const milesCanDrive = this.tank * this.mpg
+    if(distance <= milesCanDrive){
+      this.odometer += distance
+      this.tank = this.tank - (distance/this.mpg)
+      return this.odometer
+    } else {
+      this.odometer = this.odometer + milesCanDrive
+      this.tank = this.tank - (milesCanDrive/this.mpg)
+      return this.odometer
+    }
   }
 
   /**
@@ -166,6 +174,9 @@ class Car {
     // ✨ implement
   }
 }
+const focus = new Car("focus", 20, 30)
+focus.drive(600)
+focus.drive(1)
 
 /**
  * [Exercise 7] Asynchronously resolves whether a number is even
