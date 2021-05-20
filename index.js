@@ -170,7 +170,16 @@ class Car {
    * focus.refuel(99) // returns 600 (tank only holds 20)
    */
   refuel(gallons) {
-    // ✨ implement
+    
+    const emptyGallons = this.tankSize - this.tank;
+
+    if(gallons <= emptyGallons){
+      this.tank = this.tank + gallons
+    } else {
+      
+      this.tank = this.tankSize
+    }
+    return this.tank * this.mpg
   }
 }
 
@@ -195,7 +204,17 @@ class Car {
  * })
  */
 function isEvenNumberAsync(number) {
-  // ✨ implement
+  
+  //if x%2 > 0 then it is false
+if( isNaN(number) || typeof number === "string"){
+  return "number must be a number" 
+} else {
+  if(number%2 > 0){
+    return Promise.resolve(false);
+  } else {
+    return Promise.resolve(true);
+  }
+}
 }
 
 module.exports = {

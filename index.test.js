@@ -99,7 +99,7 @@ describe('[Exercise 5] Seasons', () => {
     expect(seasons.next()).toBe("summer")
   })
   test('[14] the 40th call of seasons.next returns "spring"',()=>{
-    for(let i=0; i<39; i++){
+    for(let i=0; i<38; i++){
       seasons.next()
     }
     expect(seasons.next()).toBe("spring");
@@ -136,8 +136,30 @@ describe('[Exercise 6] Car', () => {
 })
 
 describe('[Exercise 7] isEvenNumberAsync', () => {
-  test.todo('[19] resolves true if passed an even number')
-  test.todo('[20] resolves false if passed an odd number')
-  test.todo('[21] rejects an error with the message "number must be a number" if passed a non-number type')
-  test.todo('[22] rejects an error with the message "number must be a number" if passed NaN')
+  test('[19] resolves true if passed an even number',async ()=>{
+
+    const result = await utils.isEvenNumberAsync(2)
+
+    expect(result).toBe(true);
+
+
+  })
+  test('[20] resolves false if passed an odd number',async ()=>{
+    
+    const result = await utils.isEvenNumberAsync(3)
+
+    expect(result).toBe(false)
+
+  })
+  test('[21] rejects an error with the message "number must be a number" if passed a non-number type',async()=>{
+
+    const result = await utils.isEvenNumberAsync("hello")
+
+    expect(result).toBe("number must be a number")
+  })
+  test('[22] rejects an error with the message "number must be a number" if passed NaN',async()=>{
+    const result = await utils.isEvenNumberAsync(NaN)
+
+    expect(result).toBe("number must be a number")
+  })
 })
